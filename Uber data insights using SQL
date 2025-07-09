@@ -1,0 +1,54 @@
+select * from dbo.Sheet1$
+where Driver_ID is not null
+
+
+**Total number of ride requests**
+
+select COUNT(*) as total_requests
+from dbo.Sheet1$
+
+**count of each request status**
+
+select status, COUNT(*) AS count
+from dbo.Sheet1$
+group by Status
+
+**top five drivers with most trips**
+
+select top 5 Driver_ID, COUNT(*) as trip_count
+from dbo.Sheet1$
+where status='trip completed'
+group by Driver_ID
+order by trip_count desc
+
+**total cancelled requests**
+
+select COUNT(*) as cancelled_requests
+from dbo.Sheet1$
+where status='cancelled'
+
+** trips where no cars were available**
+
+select COUNT(*) as no_cars
+from dbo.Sheet1$
+where status='no cars available'
+
+**requests without assigned driver**
+
+SELECT COUNT(*) AS no_driver_requests
+FROM dbo.Sheet1$
+WHERE driver_id IS NULL
+
+**earliest and latest request dates**
+
+SELECT 
+    MIN(request_timestamp) AS first_request,
+    MAX(request_timestamp) AS last_request
+FROM dbo.Sheet1$
+
+**completed trips by pickup point**
+
+SELECT pickup_point, COUNT(*) AS completed_trips
+FROM dbo.Sheet1$
+WHERE status = 'Trip Completed'
+GROUP BY pickup_point
