@@ -1,0 +1,30 @@
+total_requests
+6745
+
+status	              count
+No Cars Available	    2650
+Trip Completed	      2831
+Cancelled	            1264
+
+Driver_ID	trip_count
+22	      16
+184	      15
+233	      15
+212	      14
+134     	14
+
+cancelled_requests
+1264
+
+no_cars
+2650
+
+no_driver_requests
+2650
+
+first_request    	            last_request
+2016-07-11 00:00:00.000	    2016-07-15 23:59:58.000
+
+pickup_point	  completed_trips
+City	            1504
+Airport	          1327
